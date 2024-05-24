@@ -2,30 +2,18 @@ from sets_categories_data import (ALCOHOLS)
 
 
 def clean_ingredients(dish_name, dish_ingredients):
-    """Remove duplicates from `dish_ingredients`.
 
-    :param dish_name: str - containing the dish name.
-    :param dish_ingredients: list - dish ingredients.
-    :return: tuple - containing (dish_name, ingredient set).
+    dish_ingredients1 = set(dish_ingredients)
+    return (dish_name, dish_ingredients1)
 
-    This function should return a `tuple` with the name of the dish as the first item,
-    followed by the de-duped `set` of ingredients as the second item.
-    """
-
-    return ()
-
-
+ 
 def check_drinks(drink_name, drink_ingredients):
-    """Append "Cocktail" (alcohol)  or "Mocktail" (no alcohol) to `drink_name`, based on `drink_ingredients`.
+    drink_ingredients_1 = set(drink_ingredients)
+    ALCOHOLS_1 = set(ALCOHOLS)
+    
+    if drink_ingredients_1.intersection(ALCOHOLS_1)  == set():
 
-    :param drink_name: str - name of the drink.
-    :param drink_ingredients: list - ingredients in the drink.
-    :return: str - drink_name appended with "Mocktail" or "Cocktail".
+        return (str(drink_name) + " " + "Mocktail")
 
-    The function should return the name of the drink followed by "Mocktail" (non-alcoholic) and drink
-    name followed by "Cocktail" (includes alcohol).
-
-    """
-
-    return ""
-
+    else:
+        return (str(drink_name) + " " + "Cocktail")
